@@ -1,0 +1,31 @@
+!!!
+%html
+  %head{:lang => "en"}
+    %meta{:charset => "UTF-8"}
+    %title
+    %link{:href => "styles/bootstrap.css", :media => "screen", :rel => "stylesheet"}
+    %link{:href => "styles/font-awesome.css", :media => "screen", :rel => "stylesheet"}
+    %link{:href => "styles/android.css", :media => "screen", :rel => "stylesheet"}
+  %body
+    .no-footer
+      %header
+        创建活动
+        .header-left
+          %a.btn-style.btn-4{:href => "survey-list.html"} 返回
+      #wrapper.wrapper.scrollable
+        %form.wrapper-inner
+          %fieldset.form-wrapper
+            %h5 活动名称
+            %input.input-full{:type => "text"}/
+            %hr/
+            %a.btn-style.btn-2{:href => ""} 创建
+      %footer
+        %ul.footer-nav.footer-nav-2tabs
+          %li.active
+            %a{:href => "survey-list.html"}
+              %i.icon-group
+                %br/
+          %li
+            %a{:href => "survey-history.html"}
+              %i.icon-comments
+                %br/
