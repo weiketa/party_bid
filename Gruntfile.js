@@ -25,15 +25,16 @@ module.exports = function (grunt) {
         dest: 'app/create_activity.html'
       }
     },*/
-    haml: {                              // Task
+    /*haml: {                              // Task
       dist: {                            // Target
         files: {                         // Dictionary of files
           //'main.html': 'main.haml',       // 'destination': 'source'
-          'app/create_activity.html': 'app/create_activity.haml'
+          'app/views/create_activity.html': 'app/views/create_activity.haml'
 
         }
       }
-    },
+    },*/
+
     // Project settings
     yeoman: {
       // configurable paths
@@ -43,9 +44,14 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
-      /*haml: {
-        files: [
-          'app*//*.haml',
+
+      haml: {
+        files: ['<%= yeoman.app %>/views/*'],
+        tasks: ['haml']
+        },
+        /*haml: {
+          files: [
+            'app*//*.haml',
           'app/views*//*.haml'
         ],
         tasks: 'haml'
@@ -85,6 +91,16 @@ module.exports = function (grunt) {
       }
 
     },
+      haml:{
+            create_activity: {
+                src: 'app/views/create_activity.haml',
+                dest: 'app/views/create_activity.html'
+        },
+            activity_list: {
+                src: 'app/views/activity_list.haml',
+                dest: 'app/views/activity_list.html'
+          }
+      },
 
     // The actual grunt server settings
     connect: {
@@ -409,7 +425,8 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'haml'
   ]);
 
   grunt.registerTask('default', [

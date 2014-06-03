@@ -1,0 +1,10 @@
+%header
+  创建活动
+  .header-left
+    %a.btn-style.btn-4(href="#/list" ng-hide="false") 返回
+#wrapper.wrapper.scrollable(ng-controller="CreateActivityCtrl")
+  %form.wrapper-inner
+    %fieldset.form-wrapper
+      %h5 活动名称
+      %input.input-full(ng-model="input" )
+      %button.btn.btn-2(ng-disabled="(input==null||input=='')") 创建

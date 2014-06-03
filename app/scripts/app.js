@@ -10,8 +10,12 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'app/create_activity.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/create_activity.html',
+        controller: 'CreateActivityCtrl'
+      })
+      .when('/list', {
+        templateUrl: 'views/activity_list.html',
+        controller: 'ActivityListCtrl'
       })
       .otherwise({
         redirectTo: '/'
