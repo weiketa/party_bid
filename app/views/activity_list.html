@@ -6,9 +6,11 @@
 </header>
 <div class='wrapper scrollable' id='wrapper'>
   <ul class='list-style-2'>
-    <li>
-      <a href=''>
-        <h3>活动1</h3>
+    <li class='{{activity.applystatus}}' ng-repeat='activity in activities'>
+      <a href='#/apply/{{activity.name}}'>
+        <h3>
+          {{activity.name}}
+        </h3>
       </a>
     </li>
   </ul>

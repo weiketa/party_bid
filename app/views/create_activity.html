@@ -1,7 +1,7 @@
 <header>
   创建活动
   <div class='header-left'>
-    <a class='btn-style btn-4' href='#/list' ng-hide='false'>返回</a>
+    <a class='btn-style btn-4' href='#/list' ng-hide='flag'>返回</a>
   </div>
 </header>
 <div class='wrapper scrollable' id='wrapper' ng-controller='CreateActivityCtrl'>
@@ -9,7 +9,8 @@
     <fieldset class='form-wrapper'>
       <h5>活动名称</h5>
       <input class='input-full' ng-model='input'>
-      <button class='btn btn-2' ng-disabled="(input==null||input=='')">创建</button>
+      <p ng-show='err' style='color:red'>活动名称重复</p>
+      <button class='btn btn-2' ng-click='add()' ng-disabled="(input==null||input=='')">创建</button>
     </fieldset>
   </form>
 </div>

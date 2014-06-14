@@ -137,14 +137,15 @@ footer {
 
 .footer-nav li a {
 	display: block;
-	padding:6px 0;
+	padding:12px 0;
 	text-align: center;
 	color: #fff;
-	font-size: 12px;
+	font-size: 18px;
 	font-weight: normal;
 	text-shadow: #222 -1px -1px;
 	text-decoration: none;
 	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #3d3d3d), color-stop(1, #272727));
+    background:#3d3d3d ;
 }
 
 .footer-nav li:hover a, .footer-nav li:active a, .footer-nav li.active a {
@@ -153,6 +154,7 @@ footer {
 	border-left: none;
 	border-right: none;
 	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #242424), color-stop(1, #242424));
+    background:#272727 ;
 }
 
 .footer-nav li a i {

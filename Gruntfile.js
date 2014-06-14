@@ -95,11 +95,20 @@ module.exports = function (grunt) {
             create_activity: {
                 src: 'app/views/create_activity.haml',
                 dest: 'app/views/create_activity.html'
-        },
+            },
             activity_list: {
                 src: 'app/views/activity_list.haml',
                 dest: 'app/views/activity_list.html'
-          }
+            },
+            activity_start: {
+                src: 'app/views/activity_start.haml',
+                dest: 'app/views/activity_start.html'
+            },
+            bid_start: {
+                src: 'app/views/bid_start.haml',
+                dest: 'app/views/bid_start.html'
+            }
+
       },
 
     // The actual grunt server settings

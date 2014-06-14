@@ -1,0 +1,38 @@
+<header>
+  活动报名 ({{applies.length}}人)
+  <div class='header-left'>
+    <a class='btn-style btn-4' href='#/list'>返回</a>
+  </div>
+  <div class='header-right' ng-switch='switch'>
+    <button class='btn btn-style btn-4' ng-click='apply_start()' ng-disabled='flag' ng-switch-when='start'>开始</button>
+    <button class='btn btn-style btn-4' ng-click='apply_end()' ng-switch-when='end'>结束</button>
+  </div>
+</header>
+<div class='wrapper scrollable' id='wrapper'>
+  <ul class='list-style-2'>
+    <li ng-repeat='apply in applies'>
+      <div style=' float:left width:50%'>
+        <h3>
+          {{apply.applyname}}
+          <div style='float:right'>
+            {{apply.phone}}
+          </div>
+        </h3>
+      </div>
+    </li>
+  </ul>
+</div>
+<footer>
+  <ul class='footer-nav footer-nav-2tabs'>
+    <li class='active'>
+      <a href=''>
+        报名
+      </a>
+    </li>
+    <li>
+      <a href='#/bid/{{act_name}}'>
+        竞价
+      </a>
+    </li>
+  </ul>
+</footer>
