@@ -6,7 +6,7 @@ angular.module('partyBidApp')
             $scope.flag=true;
         else
         $scope.flag=false;
-        console.log(Activity.get_activitise());
+
         $scope.add=function() {
             if(!localStorage.activitylist){
                 var first_activity=[{'name':$scope.input,'applystatus':'applyend','applylist':[],'bidstatus':'bidend'}];
@@ -14,19 +14,21 @@ angular.module('partyBidApp')
             }
             else{
 
-                var act_list=JSON.parse(localStorage.getItem('activitylist'));
+                //var act_list=JSON.parse(localStorage.getItem('activitylist'));
                 $scope.activities=Activity.get_activitise();
-                //$scope.activities=acts;
                 for(var i=0;i<$scope.activities.length;i++){
-                   if($scope.activities[i]==$scope.input){
-                       $scope.err=true;
-                       return ;
-                   }
+                    if($scope.activities[i]==$scope.input){
+                        $scope.err=true;
+                        return ;
+                    }
                     $scope.err=false;
 
                 }
-                act_list.push({'name':$scope.input,'applystatus':'applyend','applylist':[],'bidstatus':'bidend'});
-                localStorage.setItem('activitylist',JSON.stringify(act_list));
+                Activity.add_activity($scope.input);
+                //$scope.activities=acts;
+
+                //act_list.push({'name':$scope.input,'applystatus':'applyend','applylist':[],'bidstatus':'bidend'});
+                //localStorage.setItem('activitylist',JSON.stringify(act_list));
 
             }
 
