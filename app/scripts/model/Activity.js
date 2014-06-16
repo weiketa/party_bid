@@ -12,7 +12,11 @@ Activity.add_activity=function(name,repeat){
         location.href='#/apply/'+name;
     }
 }
-
+Activity.firstadd_activity=function(name){
+    var first_activity=[{'name':name,'applystatus':'applyend','applylist':[],'bidstatus':'bidend'}];
+    localStorage.setItem('activitylist',JSON.stringify(first_activity));
+    location.href='#/apply/'+name;
+}
 Activity.get_activitise=function(){
     var act_list=JSON.parse(localStorage.getItem('activitylist'));
     var acts=new Array();
