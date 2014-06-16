@@ -39,14 +39,7 @@ angular.module('partyBidApp')
         }
         $scope.apply_end=function (){
             if(window.confirm('确认要结束本次报名吗？')){
-                var act_list=JSON.parse(localStorage.getItem('activitylist'));
-                for(var i=0;i<act_list.length;i++){
-                    if(act_list[i].name==$scope.act_name){
-                        act_list[i].applystatus='applyend';
-                        localStorage.setItem('activitylist',JSON.stringify(act_list));
-                        break;
-                    }
-                }
+                Apply.end_onclick($scope.act_name);
                 $scope.switch='start';
             }
         }
