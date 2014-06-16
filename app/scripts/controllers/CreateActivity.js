@@ -34,15 +34,7 @@ angular.module('partyBidApp')
         $scope.flag=Apply.disable_btn_applystart($scope.act_name);
 
         $scope.apply_start=function (){
-        var act_list=JSON.parse(localStorage.getItem('activitylist'));
-        for(var i=0;i<act_list.length;i++){
-            if(act_list[i].name==$scope.act_name){
-                act_list[i].applystatus='applystart';
-                localStorage.setItem('activitylist',JSON.stringify(act_list));
-                break;
-            }
-        }
-
+            Apply.start_onclick($scope.act_name);
             $scope.switch='end';
         }
         $scope.apply_end=function (){

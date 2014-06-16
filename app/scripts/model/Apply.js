@@ -9,8 +9,6 @@ Apply.check_applystatus=function(act_name){
     var act_list=JSON.parse(localStorage.getItem('activitylist'));
     for(var i=0;i<act_list.length;i++){                  //判断开始按钮的状态
         if(act_list[i].name==act_name){
-            console.log(i);
-            console.log(act_list[i].applystatus);
             if(act_list[i].applystatus=='applyend'){
                 return 'start';
             }
@@ -34,4 +32,14 @@ Apply.disable_btn_applystart=function(act_name){
         }
     }
     return false;
+}
+Apply.start_onclick=function(act_name){
+    var act_list=JSON.parse(localStorage.getItem('activitylist'));
+    for(var i=0;i<act_list.length;i++){
+        if(act_list[i].name==act_name){
+            act_list[i].applystatus='applystart';
+            localStorage.setItem('activitylist',JSON.stringify(act_list));
+            break;
+        }
+    }
 }
