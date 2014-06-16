@@ -32,19 +32,9 @@ angular.module('partyBidApp')
 angular.module('partyBidApp')
     .controller('ActivityStartCtrl',function ($scope,$routeParams) {
         $scope.act_name=$routeParams.act_name;
-        //console.log($scope.act_name);
-        $scope.applies=Apply.get_applylist($scope.act_name)
+        $scope.applies=Apply.get_applylist($scope.act_name);
+        $scope.switch=Apply.check_applystatus($scope.act_name);
         var act_list=JSON.parse(localStorage.getItem('activitylist'));
-        for(var i=0;i<act_list.length;i++){                  //判断开始按钮的状态
-            if(act_list[i].name==$scope.act_name){
-                if(act_list[i].applystatus=='applyend'){
-                    $scope.switch='start';
-                    break;
-                }
-                $scope.switch='end';
-                break;
-            }
-        }
         for(var i=0;i<act_list.length;i++){
             if((act_list[i].applystatus=='applystart'&&act_list[i].name!=$scope.act_name)||act_list[i].bidstatus=='bidstart'){
                 $scope.flag=true;
