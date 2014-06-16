@@ -5,7 +5,7 @@ angular.module('partyBidApp')
         if(!localStorage.activitylist)
             $scope.flag=true;
         else
-        $scope.flag=false;
+            $scope.flag=false;
 
         $scope.add=function() {
             if(!localStorage.activitylist){
@@ -16,7 +16,6 @@ angular.module('partyBidApp')
             else{
                 $scope.activities=Activity.get_activitise();
                 $scope.error=Activity.check_activity_repeat($scope.activities,$scope.input);
-                console.log($scope.error);
                 Activity.add_activity($scope.input, $scope.error);
             }
         }
@@ -34,13 +33,15 @@ angular.module('partyBidApp')
         $scope.act_name=$routeParams.act_name;
         $scope.applies=Apply.get_applylist($scope.act_name);
         $scope.switch=Apply.check_applystatus($scope.act_name);
-        var act_list=JSON.parse(localStorage.getItem('activitylist'));
+        console.log($scope.switch);
+        $scope.flag=Apply.disable_btn_applystart($scope.act_name);
+        /*var act_list=JSON.parse(localStorage.getItem('activitylist'));
         for(var i=0;i<act_list.length;i++){
             if((act_list[i].applystatus=='applystart'&&act_list[i].name!=$scope.act_name)||act_list[i].bidstatus=='bidstart'){
                 $scope.flag=true;
                 break;
             }
-        }
+        }*/
         $scope.apply_start=function (){
         var act_list=JSON.parse(localStorage.getItem('activitylist'));
         for(var i=0;i<act_list.length;i++){
