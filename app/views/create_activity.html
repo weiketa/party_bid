@@ -9,7 +9,7 @@
     <fieldset class='form-wrapper'>
       <h5>活动名称</h5>
       <input class='input-full' ng-model='input'>
-      <p ng-show='err' style='color:red'>活动名称重复</p>
+      <p ng-show='error' style='color:red'>活动名称重复</p>
       <button class='btn btn-2' ng-click='add()' ng-disabled="(input==null||input=='')">创建</button>
     </fieldset>
   </form>

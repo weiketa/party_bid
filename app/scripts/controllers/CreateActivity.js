@@ -11,30 +11,14 @@ angular.module('partyBidApp')
             if(!localStorage.activitylist){
                 var first_activity=[{'name':$scope.input,'applystatus':'applyend','applylist':[],'bidstatus':'bidend'}];
                 localStorage.setItem('activitylist',JSON.stringify(first_activity));
+                location.href='#/apply/'+$scope.input;
             }
             else{
-
-                //var act_list=JSON.parse(localStorage.getItem('activitylist'));
                 $scope.activities=Activity.get_activitise();
-                for(var i=0;i<$scope.activities.length;i++){
-                    if($scope.activities[i]==$scope.input){
-                        $scope.err=true;
-                        return ;
-                    }
-                    $scope.err=false;
-
-                }
-                Activity.add_activity($scope.input);
-                //$scope.activities=acts;
-
-                //act_list.push({'name':$scope.input,'applystatus':'applyend','applylist':[],'bidstatus':'bidend'});
-                //localStorage.setItem('activitylist',JSON.stringify(act_list));
-
+                $scope.error=Activity.check_activity_repeat($scope.activities,$scope.input);
+                console.log($scope.error);
+                Activity.add_activity($scope.input, $scope.error);
             }
-
-            location.href='#/apply/'+$scope.input;
-        /*$scope.input='';
-            location.reload();*/
         }
     });
 angular.module('partyBidApp')
