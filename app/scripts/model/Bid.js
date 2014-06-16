@@ -15,3 +15,13 @@ Bid.check_bidstatus=function(act_name){
     }
     return 'end';
 }
+Bid.disable_btn_bidstart=function(act_name){
+    var act_list=JSON.parse(localStorage.getItem('activitylist'));
+    for(var i=0;i<act_list.length;i++){
+        if(act_list[i].name==act_name){
+            if(act_list[i].applylist.length==0||act_list[i].applystatus=='applystart'){
+                return true;
+            }
+        }
+    }
+}

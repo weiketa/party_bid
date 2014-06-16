@@ -47,15 +47,9 @@ angular.module('partyBidApp')
 angular.module('partyBidApp')
     .controller('BidStartCtrl',function ($scope,$routeParams) {
         $scope.act_name=$routeParams.act_name;
-        var act_list=JSON.parse(localStorage.getItem('activitylist'));
         $scope.switch=Bid.check_bidstatus($scope.act_name);
-        for(var i=0;i<act_list.length;i++){
-            if(act_list[i].name==$scope.act_name){
-                if(act_list[i].applylist.length==0||act_list[i].applystatus=='applystart'){
-                    $scope.flag=true;
-                }
-            }
-        }
+        $scope.flag=Bid.disable_btn_bidstart($scope.act_name);
+
         $scope.bid_start=function () {
             var act_list = JSON.parse(localStorage.getItem('activitylist'));
             for (var i = 0; i < act_list.length; i++) {
