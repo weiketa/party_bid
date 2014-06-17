@@ -32,46 +32,6 @@ var native_accessor = {
             else
                 console.log('对不起，报名已经结束。');
         }
-        /*var act_list=JSON.parse(localStorage.getItem('activitylist'));
-        var apply_start=0;
-        for(var i=0;i<act_list.length;i++){
-
-            if(act_list[i].applystatus=='applystart'){
-                var mess=Message.delete_space(json_message);
-                if(mess.search(/bm/i)==0){
-                    var apply_name=mess.substr(2).trim();
-                    var apply_phone=json_message.messages[0].phone;
-                    var apply_model={'applyname':apply_name,'phone':apply_phone};
-                    for(var j=0;j<act_list[i].applylist.length;j++){
-                        if(apply_phone==act_list[i].applylist[j].phone){
-                            console.log('不能重复报名。');
-                            return;
-                        }
-                    }
-                    act_list[i].applylist.push(apply_model);
-                    localStorage.setItem('activitylist',JSON.stringify(act_list));
-                    console.log('报名成功！');
-                    apply_start=1;
-                    location.reload();
-                    break;
-                }
-                console.log('报名短信格式不对。');
-                apply_start=1;
-                break;
-            }
-        }
-        if(apply_start==0){
-            for(var i=0;i<act_list.length;i++){
-                if(act_list[i].applylist.length==0){
-                    console.log('活动尚未开始，请稍候。');
-                    break;
-                }
-                if(i==act_list.length-1){
-                    console.log('对不起，报名已经结束。');
-                    break;
-                }
-            }
-        }*/
         //console.log('aaaaaaaaaaaaaaa');
     }
 };
