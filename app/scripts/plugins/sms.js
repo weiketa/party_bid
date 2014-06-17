@@ -14,12 +14,30 @@ var native_accessor = {
 
     process_received_message: function (json_message) {
 
-        var act_list=JSON.parse(localStorage.getItem('activitylist'));
+        if(Message.check_applystate()){
+            if(Message.check_apply_repeat(json_message))
+                console.log('不能重复报名。');
+            else{
+                if(Message.message_is_apply(json_message)){
+                    Message.add_apply(json_message);
+                    console.log('报名成功！');
+                }
+                else
+                    console.log('报名短信格式不对。');
+            }
+        }
+        else{
+            if(Message.check_apply_detailstatus())
+                console.log('活动尚未开始，请稍候。');
+            else
+                console.log('对不起，报名已经结束。');
+        }
+        /*var act_list=JSON.parse(localStorage.getItem('activitylist'));
         var apply_start=0;
         for(var i=0;i<act_list.length;i++){
 
             if(act_list[i].applystatus=='applystart'){
-                var mess=json_message.messages[0].message.replace(/\s/g,'');
+                var mess=Message.delete_space(json_message);
                 if(mess.search(/bm/i)==0){
                     var apply_name=mess.substr(2).trim();
                     var apply_phone=json_message.messages[0].phone;
@@ -53,7 +71,7 @@ var native_accessor = {
                     break;
                 }
             }
-        }
+        }*/
         //console.log('aaaaaaaaaaaaaaa');
     }
 };

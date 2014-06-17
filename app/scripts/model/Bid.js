@@ -35,3 +35,13 @@ Bid.start_onclick=function(act_name){
         }
     }
 }
+Bid.end_onclick=function(act_name){
+    var act_list = JSON.parse(localStorage.getItem('activitylist'));
+    for (var i = 0; i < act_list.length; i++) {
+        if (act_list[i].name == act_name) {
+            act_list[i].bidstatus = 'bidend';
+            localStorage.setItem('activitylist', JSON.stringify(act_list));
+            break;
+        }
+    }
+}
