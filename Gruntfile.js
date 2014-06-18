@@ -93,20 +93,20 @@ module.exports = function (grunt) {
     },
       haml:{
             create_activity: {
-                src: 'app/views/create_activity.haml',
-                dest: 'app/views/create_activity.html'
+                src: 'app/views/hamls/create_activity.haml',
+                dest: 'app/views/htmls/create_activity.html'
             },
             activity_list: {
-                src: 'app/views/activity_list.haml',
-                dest: 'app/views/activity_list.html'
+                src: 'app/views/hamls/activity_list.haml',
+                dest: 'app/views/htmls/activity_list.html'
             },
             activity_start: {
-                src: 'app/views/activity_start.haml',
-                dest: 'app/views/activity_start.html'
+                src: 'app/views/hamls/activity_start.haml',
+                dest: 'app/views/htmls/activity_start.html'
             },
             bid_start: {
-                src: 'app/views/bid_start.haml',
-                dest: 'app/views/bid_start.html'
+                src: 'app/views/hamls/bid_start.haml',
+                dest: 'app/views/htmls/bid_start.html'
             }
 
       },

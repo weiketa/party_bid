@@ -2,6 +2,8 @@
 
 angular.module('partyBidApp')
     .controller('ActivityListCtrl',function ($scope) {
-        Page_Goto.goto_create_activity();
+        if(Activity.check_exist_activitylist())
+            location.href='#/';
+
         $scope.activities=Activity.get_activitylist();
     });

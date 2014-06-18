@@ -4,7 +4,7 @@
 function Apply(){
 
 }
-//Apply.prototype.act_list=JSON.parse(localStorage.getItem('activitylist'));
+
 Apply.check_applystatus=function(act_name){
     var act_list=JSON.parse(localStorage.getItem('activitylist'));
     for(var i=0;i<act_list.length;i++){                  //判断开始按钮的状态
@@ -16,6 +16,7 @@ Apply.check_applystatus=function(act_name){
     }
     return 'end';
 }
+
 Apply.get_applylist=function(act_name){
     var act_list=JSON.parse(localStorage.getItem('activitylist'));
     for(var i=0;i<act_list.length;i++){
@@ -24,6 +25,7 @@ Apply.get_applylist=function(act_name){
         }
     }
 }
+
 Apply.disable_btn_applystart=function(act_name){
     var act_list=JSON.parse(localStorage.getItem('activitylist'));
     for(var i=0;i<act_list.length;i++){
@@ -33,9 +35,10 @@ Apply.disable_btn_applystart=function(act_name){
     }
     return false;
 }
+
 Apply.start_onclick=function(act_name){
     var act_list=JSON.parse(localStorage.getItem('activitylist'));
-    for(var i=0;i<act_list.length;i++){
+    for(var  i=0;i<act_list.length;i++){
         if(act_list[i].name==act_name){
             act_list[i].applystatus='applystart';
             localStorage.setItem('activitylist',JSON.stringify(act_list));
@@ -43,6 +46,7 @@ Apply.start_onclick=function(act_name){
         }
     }
 }
+
 Apply.end_onclick=function(act_name){
     var act_list=JSON.parse(localStorage.getItem('activitylist'));
     for(var i=0;i<act_list.length;i++){

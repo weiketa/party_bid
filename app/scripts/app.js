@@ -10,19 +10,19 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/create_activity.html',
+        templateUrl: 'views/htmls/create_activity.html',
         controller: 'CreateActivityCtrl'
       })
       .when('/activitylist', {
-        templateUrl: 'views/activity_list.html',
+        templateUrl: 'views/htmls/activity_list.html',
         controller: 'ActivityListCtrl'
       })
       .when('/apply/:act_name', {
-            templateUrl: 'views/activity_start.html',
+            templateUrl: 'views/htmls/activity_start.html',
             controller: 'ActivityStartCtrl'
         })
       .when('/bid/:act_name', {
-            templateUrl: 'views/bid_start.html',
+            templateUrl: 'views/htmls/bid_start.html',
             controller: 'BidStartCtrl'
         })
       .otherwise({

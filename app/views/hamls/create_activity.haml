@@ -7,5 +7,5 @@
     %fieldset.form-wrapper
       %h5 活动名称
       %input.input-full(ng-model="input" )
-      %p(style="color:red" ng-show="error") 活动名称重复
+      %p(style="color:red" ng-show="repeat") 活动名称重复
       %button.btn.btn-2(ng-disabled="(input==null||input=='')" ng-click="add()") 创建
