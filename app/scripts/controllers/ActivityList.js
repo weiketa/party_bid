@@ -2,10 +2,6 @@
 
 angular.module('partyBidApp')
     .controller('ActivityListCtrl',function ($scope) {
-        if(!localStorage.activitylist){
-            location.href='#/';
-        }
-        $scope.activities = Activity.get_activitise();
-        $scope.activities=JSON.parse(localStorage.getItem('activitylist'));
-        $scope.activities.reverse();
+        Page_Goto.goto_create_activity();
+        $scope.activities=Activity.get_activitylist();
     });

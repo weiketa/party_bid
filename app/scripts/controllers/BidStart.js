@@ -7,7 +7,6 @@ angular.module('partyBidApp')
         $scope.act_name=$routeParams.act_name;
         $scope.switch=Bid.check_bidstatus($scope.act_name);
         $scope.flag=Bid.disable_btn_bidstart($scope.act_name);
-
         $scope.bid_start=function () {
             Bid.start_onclick($scope.act_name);
             $scope.switch='end';

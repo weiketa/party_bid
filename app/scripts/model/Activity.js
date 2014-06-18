@@ -12,13 +12,13 @@ Activity.prototype.add_activity=function(repeat){
         var act_list=JSON.parse(localStorage.getItem('activitylist'));
         act_list.push(this);
         localStorage.setItem('activitylist',JSON.stringify(act_list));
-        location.href='#/apply/'+this.name;
+        Page_Goto.goto_activity_start(this.name)
     }
 }
 Activity.prototype.first_add_activity=function(){
     var first_activity=[this];
     localStorage.setItem('activitylist',JSON.stringify(first_activity));
-    location.href='#/apply/'+this.name;
+    Page_Goto.goto_activity_start(this.name)
 }
 Activity.prototype.check_activity_repeat=function(activities){
     for (var i=0;i<activities.length;i++){
@@ -61,7 +61,17 @@ Activity.get_activitise=function(){
     }
     return acts;
 }
-
+Activity.disable_btn_return=function(){
+    if(!localStorage.activitylist)
+        return true;
+    else
+        return false;
+}
+Activity.get_activitylist=function(){
+    var activitylist=JSON.parse(localStorage.getItem('activitylist'));
+    activitylist.reverse();
+    return activitylist;
+}
 /*Activity.check_activity_repeat=function(activities,name){
     for (var i=0;i<activities.length;i++){
         if(activities[i]==name){
