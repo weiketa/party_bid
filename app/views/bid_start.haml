@@ -1,7 +1,7 @@
 %header
-  活动竞价 ({{applies.length}}人)
+  竞价列表
   .header-left
-    %a.btn-style.btn-4(href="#/apply/{{act_name}}") 返回
+    %a.btn-style.btn-4(href="#/activitylist") 返回
   .header-right(ng-switch="switch")
     %button.btn.btn-style.btn-4(ng-switch-when="start" ng-click="bid_start()" ng-disabled="flag") 开始
     %button.btn.btn-style.btn-4(ng-switch-when="end" ng-click="bid_end()") 结束

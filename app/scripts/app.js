@@ -13,14 +13,10 @@ angular
         templateUrl: 'views/create_activity.html',
         controller: 'CreateActivityCtrl'
       })
-      .when('/list', {
+      .when('/activitylist', {
         templateUrl: 'views/activity_list.html',
         controller: 'ActivityListCtrl'
       })
-      /*.when('/apply', {
-            templateUrl: 'views/activity_start.html',
-            controller: 'ActivityStartCtrl'
-        })*/
       .when('/apply/:act_name', {
             templateUrl: 'views/activity_start.html',
             controller: 'ActivityStartCtrl'
