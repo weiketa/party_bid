@@ -26,7 +26,7 @@ Apply.get_applylist=function(act_name){
     }
 }
 
-Apply.disable_btn_applystart=function(act_name){
+Apply.is_apply_able=function(act_name){
     var act_list=JSON.parse(localStorage.getItem('activitylist'));
     for(var i=0;i<act_list.length;i++){
         if((act_list[i].applystatus=='applystart'&&act_list[i].name!=act_name)||act_list[i].bidstatus=='bidstart'){
@@ -36,7 +36,7 @@ Apply.disable_btn_applystart=function(act_name){
     return false;
 }
 
-Apply.start_onclick=function(act_name){
+Apply.save_applystart_status=function(act_name){
     var act_list=JSON.parse(localStorage.getItem('activitylist'));
     for(var  i=0;i<act_list.length;i++){
         if(act_list[i].name==act_name){
@@ -47,7 +47,7 @@ Apply.start_onclick=function(act_name){
     }
 }
 
-Apply.end_onclick=function(act_name){
+Apply.save_applyend_status=function(act_name){
     var act_list=JSON.parse(localStorage.getItem('activitylist'));
     for(var i=0;i<act_list.length;i++){
         if(act_list[i].name==act_name){

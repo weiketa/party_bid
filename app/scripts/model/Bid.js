@@ -15,7 +15,7 @@ Bid.check_bidstatus=function(act_name){
     }
     return 'end';
 }
-Bid.disable_btn_bidstart=function(act_name){
+Bid.is_bid_able=function(act_name){
     var act_list=JSON.parse(localStorage.getItem('activitylist'));
     for(var i=0;i<act_list.length;i++){
         if(act_list[i].name==act_name){
@@ -25,7 +25,7 @@ Bid.disable_btn_bidstart=function(act_name){
         }
     }
 }
-Bid.start_onclick=function(act_name){
+Bid.save_bidstart_status=function(act_name){
     var act_list = JSON.parse(localStorage.getItem('activitylist'));
     for (var i = 0; i < act_list.length; i++) {
         if (act_list[i].name == act_name) {
@@ -35,7 +35,7 @@ Bid.start_onclick=function(act_name){
         }
     }
 }
-Bid.end_onclick=function(act_name){
+Bid.save_bidend_status=function(act_name){
     var act_list = JSON.parse(localStorage.getItem('activitylist'));
     for (var i = 0; i < act_list.length; i++) {
         if (act_list[i].name == act_name) {

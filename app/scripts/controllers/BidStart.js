@@ -8,11 +8,11 @@ angular.module('partyBidApp')
         $scope.switch=Bid.check_bidstatus($scope.act_name);
         $scope.flag=Bid.disable_btn_bidstart($scope.act_name);
         $scope.bid_start=function () {
-            Bid.start_onclick($scope.act_name);
+            Bid.save_bidstart_status($scope.act_name);
             $scope.switch='end';
         }
         $scope.bid_end=function(){
-            Bid.end_onclick($scope.act_name);
+            Bid.save_bidend_status($scope.act_name);
             $scope.switch='start';
         }
     });

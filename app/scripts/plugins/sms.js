@@ -21,9 +21,9 @@ var native_accessor = {
                 if(Message.message_is_apply(json_message)){
                     Message.add_apply(json_message);
                     console.log('报名成功！');
+                    return;
                 }
-                else
-                    console.log('报名短信格式不对。');
+                console.log('报名短信格式不对。');
             }
         }
         else{

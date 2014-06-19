@@ -33,11 +33,11 @@ Activity.get_activitise=function(){
     }
     return acts;
 }
-Activity.disable_btn_return=function(){
+/*Activity.disable_btn_return=function(){
     if(!localStorage.activitylist)
         return true;
         return false;
-}
+}*/
 Activity.get_activitylist=function(){
     var activitylist=JSON.parse(localStorage.getItem('activitylist'));
     activitylist.reverse();
