@@ -13,25 +13,30 @@ var native_accessor = {
     },
 
     process_received_message: function (json_message) {
+        if (!Message.check_applystate()&&Message.check_apply_detailstatus()) {
+            console.log('活动尚未开始，请稍候。');
+            return;
+        }
+        if(!Message.check_applystate()&&!Message.check_apply_detailstatus()){
+            console.log('对不起，报名已经结束。');
+            return;
+        }
+        if(Message.check_applystate() && !Message.message_is_apply(json_message)) {
+            console.log('报名短信格式不对。');
+            return;
+        }
+        if (Message.check_applystate() && Message.check_apply_repeat(json_message)) {
+            console.log('不能重复报名。');
+            return;
+        }
+        if (Message.check_applystate() && Message.message_is_apply(json_message)) {
+            Message.add_apply(json_message);
+            console.log('报名成功！');
+            return;
+        }
 
-        if(Message.check_applystate()){
-            if(Message.check_apply_repeat(json_message))
-                console.log('不能重复报名。');
-            else{
-                if(Message.message_is_apply(json_message)){
-                    Message.add_apply(json_message);
-                    console.log('报名成功！');
-                    return;
-                }
-                console.log('报名短信格式不对。');
-            }
-        }
-        else{
-            if(Message.check_apply_detailstatus())
-                console.log('活动尚未开始，请稍候。');
-            else
-                console.log('对不起，报名已经结束。');
-        }
+
+
         //console.log('aaaaaaaaaaaaaaa');
     }
 };
@@ -41,11 +46,11 @@ function notify_message_received(message_json) {
     //console.log(JSON.stringify(message_json));
     //console.log(message_json.messages[0].message);
     /*var mess=message_json.messages[0].message.replace(/\s/g,'');
-    if(mess.search(/bm/i)==0){
-        var apply_name=mess.substr(2).trim();
-        var apply_phone=message_json.messages[0].phone;
-        console.log(apply_phone);
-    }*/
+     if(mess.search(/bm/i)==0){
+     var apply_name=mess.substr(2).trim();
+     var apply_phone=message_json.messages[0].phone;
+     console.log(apply_phone);
+     }*/
 
     //JSON.stringify(message_json);
     //alert(JSON.stringify(message_json.messages));

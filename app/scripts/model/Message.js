@@ -7,6 +7,7 @@ function Message(){
 Message.delete_space=function(message){
      return message.messages[0].message.replace(/\s/g,'');
 }
+
 Message.check_applystate=function(){
     var act_list=JSON.parse(localStorage.getItem('activitylist'));
     for(var i=0;i<act_list.length;i++){
@@ -16,6 +17,7 @@ Message.check_applystate=function(){
     }
     return false;
 }
+
 Message.message_is_apply=function(message){
         var message=Message.delete_space(message);
         if(message.search(/bm/i)==0){
@@ -23,6 +25,7 @@ Message.message_is_apply=function(message){
         }
     return false;
 }
+
 Message.check_apply_repeat=function(message){
     var position=Message.get_applystart_array_position();
     var act_list=JSON.parse(localStorage.getItem('activitylist'));
@@ -33,6 +36,7 @@ Message.check_apply_repeat=function(message){
     }
     return false;
 }
+
 Message.get_applystart_array_position=function(){
     var act_list=JSON.parse(localStorage.getItem('activitylist'));
     for(var i=0;i<act_list.length;i++){
@@ -41,6 +45,7 @@ Message.get_applystart_array_position=function(){
         }
     }
 }
+
 Message.add_apply=function(message){
         var act_list=JSON.parse(localStorage.getItem('activitylist'));
         var apply_name=Message.delete_space(message).substr(2).trim();
@@ -51,6 +56,7 @@ Message.add_apply=function(message){
         localStorage.setItem('activitylist',JSON.stringify(act_list));
         location.reload();
 }
+
 Message.check_apply_detailstatus=function(){
     var act_list=JSON.parse(localStorage.getItem('activitylist'));
     for(var i=0;i<act_list.length;i++) {
