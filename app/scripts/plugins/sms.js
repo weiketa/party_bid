@@ -21,7 +21,7 @@ var native_accessor = {
             console.log('对不起，报名已经结束。');
             return;
         }
-        if (Message.check_applystate() && !Message.message_is_apply(json_message)) {
+        if (Message.check_applystate() && !Message.is_message_apply(json_message)) {
             console.log('报名短信格式不对。');
             return;
         }
@@ -29,7 +29,7 @@ var native_accessor = {
             console.log('不能重复报名。');
             return;
         }
-        if (Message.check_applystate() && Message.message_is_apply(json_message)) {
+        if (Message.check_applystate() && Message.is_message_apply(json_message)) {
             Message.add_apply(json_message);
             console.log('报名成功！');
             return;
