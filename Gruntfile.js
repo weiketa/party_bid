@@ -46,7 +46,7 @@ module.exports = function (grunt) {
     watch: {
 
       haml: {
-        files: ['<%= yeoman.app %>/views/*'],
+        files: ['<%= yeoman.app %>/views/hamls/*'],
         tasks: ['haml']
         },
         /*haml: {
@@ -108,7 +108,6 @@ module.exports = function (grunt) {
                 src: 'app/views/hamls/bid_start.haml',
                 dest: 'app/views/htmls/bid_start.html'
             }
-
       },
 
     // The actual grunt server settings

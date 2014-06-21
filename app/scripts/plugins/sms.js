@@ -13,15 +13,15 @@ var native_accessor = {
     },
 
     process_received_message: function (json_message) {
-        if (!Message.check_applystate()&&Message.check_apply_detailstatus()) {
+        if (!Message.check_applystate() && Message.check_apply_detailstatus()) {
             console.log('活动尚未开始，请稍候。');
             return;
         }
-        if(!Message.check_applystate()&&!Message.check_apply_detailstatus()){
+        if (!Message.check_applystate() && !Message.check_apply_detailstatus()) {
             console.log('对不起，报名已经结束。');
             return;
         }
-        if(Message.check_applystate() && !Message.message_is_apply(json_message)) {
+        if (Message.check_applystate() && !Message.message_is_apply(json_message)) {
             console.log('报名短信格式不对。');
             return;
         }
@@ -34,8 +34,6 @@ var native_accessor = {
             console.log('报名成功！');
             return;
         }
-
-
 
         //console.log('aaaaaaaaaaaaaaa');
     }

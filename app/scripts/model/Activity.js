@@ -21,19 +21,13 @@ Activity.prototype.first_add_activity = function () {
 }
 
 Activity.prototype.check_activity_repeat = function (activities) {
-    for (var i = 0; i < activities.length; i++) {
-        if (activities[i] == this.name)
-            return true;
-    }
-    return false;
+    return _.contains(activities,this.name);
 }
 
 Activity.get_activitise = function () {
     var act_list = JSON.parse(localStorage.getItem('activitylist'));
     var acts = [];
-    for (var i = 0; i < act_list.length; i++) {
-        acts.unshift(act_list[i].name);
-    }
+    _.each(act_list,function(act){acts.unshift(act.name)});
     return acts;
 }
 
