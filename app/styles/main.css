@@ -77,6 +77,10 @@ body {
     border-bottom: 0;
   }
 }
+.bidstart{
+    background:yellow;
+}
 .applystart{
     background:yellow;
 }
+

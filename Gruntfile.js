@@ -101,7 +101,7 @@ module.exports = function (grunt) {
                 dest: 'app/views/htmls/activity_list.html'
             },
             activity_start: {
-                src: 'app/views/hamls/activity_start.haml',
+                src: 'app/views/hamls/apply_start.haml',
                 dest: 'app/views/htmls/activity_start.html'
             },
             bid_start: {

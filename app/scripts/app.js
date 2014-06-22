@@ -21,7 +21,7 @@ angular
             templateUrl: 'views/htmls/activity_start.html',
             controller: 'ActivityStartCtrl'
         })
-      .when('/bid/:act_name', {
+      .when('/bidlist/:act_name', {
             templateUrl: 'views/htmls/bid_start.html',
             controller: 'BidStartCtrl'
         })

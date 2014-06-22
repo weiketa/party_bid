@@ -3,6 +3,7 @@
 angular.module('partyBidApp')
     .controller('CreateActivityCtrl',function ($scope) {
         $scope.flag=Activity.check_exist_activitylist();
+
         $scope.add=function() {
             var activity=new Activity($scope.input);
             if($scope.flag){

@@ -34,6 +34,13 @@ var native_accessor = {
             console.log('报名成功！');
             return;
         }
+        /*var process_message={
+            '1':function(){},
+            '2':function(){},
+            '3':function(){},
+            '4':function(){},
+            '5':function(){}
+        }*/
 
         //console.log('aaaaaaaaaaaaaaa');
     }

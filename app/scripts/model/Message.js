@@ -26,7 +26,6 @@ Message.is_message_apply=function(message){
 Message.check_apply_repeat=function(message){
     var act_list=JSON.parse(localStorage.getItem('activitylist'));
     var applylist = _.findWhere(act_list,{applystatus:'applystart'}).applylist;
-    console.log(applylist);
     if(_.find(applylist,function(apply){return apply.phone==message.messages[0].phone}))
         return true;
     return false;
