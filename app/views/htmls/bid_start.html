@@ -3,17 +3,16 @@
   <div class='header-left'>
     <a class='btn-style btn-4' href='#/activitylist'>返回</a>
   </div>
-  <div class='header-right' ng-switch='switch'>
-    <button class='btn btn-style btn-4' ng-click='bid_start()' ng-disabled='flag' ng-switch-when='start'>开始</button>
-    <button class='btn btn-style btn-4' ng-click='bid_end()' ng-switch-when='end'>结束</button>
+  <div class='header-right'>
+    <button class='btn btn-style btn-4' ng-click='bid_start()' ng-disabled='flag'>开始</button>
   </div>
 </header>
 <div class='wrapper scrollable' id='wrapper'>
   <ul class='list-style-2'>
-    <li ng-repeat='apply in applies'>
-      <a href=''>
+    <li class='{{bid.bidstyle}}' ng-repeat='bid in bids'>
+      <a href='#/bidapply/{{act_name}}'>
         <h3>
-          {{apply.applyname}} {{apply.phone}}
+          {{bid.bidname}}
         </h3>
       </a>
     </li>

@@ -6,6 +6,7 @@ function Activity(name) {
     this.applystatus = 'applyend';
     this.bidstatus = 'bidend';
     this.applylist = [];
+    this.bidlist=[];
 }
 Activity.prototype.add_activity = function (repeat) {
     if (!repeat) {

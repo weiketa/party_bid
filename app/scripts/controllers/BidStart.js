@@ -5,15 +5,15 @@
 angular.module('partyBidApp')
     .controller('BidStartCtrl',function ($scope,$routeParams) {
         $scope.act_name=$routeParams.act_name;
-        $scope.switch=Bid.check_bidstatus($scope.act_name);
         $scope.flag=Bid.is_bid_able($scope.act_name);
+        $scope.bids=Bid.get_bidlist($scope.act_name);
+        $scope.activities=Activity.get_activitylist();
 
         $scope.bid_start=function () {
             Bid.save_bidstart_status($scope.act_name);
-            $scope.switch='end';
+            var bid_info=new Bid(Bid.creat_bidname($scope.act_name));
+            bid_info.add_bid_info($scope.act_name);
+            location.href='#/bidapply/'+$scope.act_name;
         }
-        $scope.bid_end=function(){
-            Bid.save_bidend_status($scope.act_name);
-            $scope.switch='start';
-        }
+
     });
