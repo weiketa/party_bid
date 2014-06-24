@@ -33,3 +33,8 @@ angular
                 redirectTo: '/'
             });
     });
+$(document).ready(function (){
+    //前提假设
+    if(!localStorage.activitylist)
+        localStorage.activitylist=JSON.stringify([]);
+});

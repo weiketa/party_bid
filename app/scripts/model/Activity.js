@@ -16,10 +16,10 @@ Activity.prototype.add_activity = function (repeat) {
     }
 }
 
-Activity.prototype.first_add_activity = function () {
+/*Activity.prototype.first_add_activity = function () {
     var first_activity = [this];
     localStorage.setItem('activitylist', JSON.stringify(first_activity));
-}
+}*/
 
 Activity.prototype.check_activity_repeat = function (activities) {
     return _.contains(activities,this.name);
@@ -39,7 +39,8 @@ Activity.get_activitylist = function () {
 }
 
 Activity.check_exist_activitylist = function () {
-    if (!localStorage.getItem('activitylist'))
+    var activity_list=JSON.parse(localStorage.getItem('activitylist'));
+    if (activity_list.length==0)
         return true;
     return false;
 }
