@@ -5,33 +5,33 @@ function Apply(){
 
 }
 
-Apply.check_applystatus=function(act_name){
-    var act_list=JSON.parse(localStorage.getItem('activitylist'));
-    if(_.findWhere(act_list,{name:act_name}).applystatus=='applyend')
+Apply.check_apply_status=function(activity_name){
+    var activity_list=JSON.parse(localStorage.getItem('activitylist'));
+    if(_.findWhere(activity_list,{name:activity_name}).applystatus=='applyend')
         return 'start';
     return 'end';
 }
 
-Apply.get_applylist=function(act_name){
-    var act_list=JSON.parse(localStorage.getItem('activitylist'));
-    return _.findWhere(act_list,{name:act_name}).applylist;
+Apply.get_apply_list=function(activity_name){
+    var activity_list=JSON.parse(localStorage.getItem('activitylist'));
+    return _.findWhere(activity_list,{name:activity_name}).applylist;
 }
 
-Apply.is_apply_able=function(act_name){
-    var act_list=JSON.parse(localStorage.getItem('activitylist'));
-    if(_.find(act_list,function(act){return (act.applystatus=='applystart'&&act.name!=act_name)||act.bidstatus=='bidstart'}))
+Apply.is_apply_able=function(activity_name){
+    var activity_list=JSON.parse(localStorage.getItem('activitylist'));
+    if(_.find(activity_list,function(activity){return (activity.applystatus=='applystart'&&activity.name!=activity_name)||activity.bidstatus=='bidstart'}))
         return true;
     return false;
 }
 
-Apply.save_applystart_status=function(act_name){
-    var act_list=JSON.parse(localStorage.getItem('activitylist'));
-    _.findWhere(act_list,{name:act_name}).applystatus='applystart';
-    localStorage.setItem('activitylist',JSON.stringify(act_list));
+Apply.save_apply_start_status=function(activity_name){
+    var activity_list=JSON.parse(localStorage.getItem('activitylist'));
+    _.findWhere(activity_list,{name:activity_name}).applystatus='applystart';
+    localStorage.setItem('activitylist',JSON.stringify(activity_list));
 }
 
-Apply.save_applyend_status=function(act_name){
-    var act_list=JSON.parse(localStorage.getItem('activitylist'));
-    _.findWhere(act_list,{name:act_name}).applystatus='applyend';
-    localStorage.setItem('activitylist',JSON.stringify(act_list));
+Apply.save_apply_end_status=function(activity_name){
+    var activity_list=JSON.parse(localStorage.getItem('activitylist'));
+    _.findWhere(activity_list,{name:activity_name}).applystatus='applyend';
+    localStorage.setItem('activitylist',JSON.stringify(activity_list));
 }

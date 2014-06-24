@@ -10,35 +10,30 @@ function Activity(name) {
 }
 Activity.prototype.add_activity = function (repeat) {
     if (!repeat) {
-        var act_list = JSON.parse(localStorage.getItem('activitylist'));
-        act_list.push(this);
-        localStorage.setItem('activitylist', JSON.stringify(act_list));
+        var activity_list = JSON.parse(localStorage.getItem('activitylist'));
+        activity_list.push(this);
+        localStorage.setItem('activitylist', JSON.stringify(activity_list));
     }
 }
-
-/*Activity.prototype.first_add_activity = function () {
-    var first_activity = [this];
-    localStorage.setItem('activitylist', JSON.stringify(first_activity));
-}*/
 
 Activity.prototype.check_activity_repeat = function (activities) {
     return _.contains(activities,this.name);
 }
 
 Activity.get_activitise = function () {
-    var act_list = JSON.parse(localStorage.getItem('activitylist'));
-    var acts = [];
-    _.each(act_list,function(act){acts.unshift(act.name)});
-    return acts;
+    var activity_list = JSON.parse(localStorage.getItem('activitylist'));
+    var activities = [];
+    _.each(activity_list,function(activity){activities.unshift(activity.name)});
+    return activities;
 }
 
-Activity.get_activitylist = function () {
-    var activitylist = JSON.parse(localStorage.getItem('activitylist'));
-    activitylist.reverse();
-    return activitylist;
+Activity.get_activity_list = function () {
+    var activity_list = JSON.parse(localStorage.getItem('activitylist'));
+    activity_list.reverse();
+    return activity_list;
 }
 
-Activity.check_exist_activitylist = function () {
+Activity.check_exist_activity_list = function () {
     var activity_list=JSON.parse(localStorage.getItem('activitylist'));
     if (activity_list.length==0)
         return true;

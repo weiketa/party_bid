@@ -17,15 +17,15 @@ angular
                 templateUrl: 'views/htmls/activity_list.html',
                 controller: 'ActivityListCtrl'
             })
-            .when('/apply/:act_name', {
+            .when('/apply/:activity_name', {
                 templateUrl: 'views/htmls/activity_start.html',
                 controller: 'ActivityStartCtrl'
             })
-            .when('/bidlist/:act_name', {
+            .when('/bidlist/:activity_name', {
                 templateUrl: 'views/htmls/bid_start.html',
                 controller: 'BidStartCtrl'
             })
-            .when('/bidapply/:act_name', {
+            .when('/bidapply/:activity_name', {
                 templateUrl: 'views/htmls/bid_apply.html',
                 controller: 'BidApplyCtrl'
             })
