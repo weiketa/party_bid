@@ -13,27 +13,54 @@ var native_accessor = {
     },
 
     process_received_message: function (json_message) {
-        if (!Message.check_apply_state() && Message.check_apply_detail_status()) {
+        console.log('start');
+        var process_message= {
+            apply_message: function () {
+                if (!Message.check_apply_status() && Message.check_apply_detail_status()) {
+                    console.log('活动尚未开始，请稍候。');
+                    return;
+                }
+                if (!Message.check_apply_status() && !Message.check_apply_detail_status()) {
+                    console.log('对不起，报名已经结束。');
+                    return;
+                }
+                if (Message.check_apply_status() && Message.check_apply_repeat(json_message)) {
+                    console.log('不能重复报名。');
+                    return;
+                }
+                if (Message.check_apply_status() && Message.is_message_apply(json_message)) {
+                    Message.add_apply(json_message);
+                    console.log('报名成功！');
+                    return;
+                }
+            },
+            bid_message: function () {
+            },
+            wrong_message: function () {
+            }
+        }
+        process_message[Message.is_bid_or_apply(json_message)]();
+        /*if (!Message.check_apply_status() && Message.check_apply_detail_status()||!Message.check_bid_status()&&Message.check_apply_detail_status()) {
             console.log('活动尚未开始，请稍候。');
             return;
         }
-        if (!Message.check_apply_state() && !Message.check_apply_detail_status()) {
+        if (!Message.check_apply_status() && !Message.check_apply_detail_status()) {
             console.log('对不起，报名已经结束。');
             return;
         }
-        if (Message.check_apply_state() && !Message.is_message_apply(json_message)) {
+        if (Message.check_apply_status() && !Message.is_message_apply(json_message)) {
             console.log('报名短信格式不对。');
             return;
         }
-        if (Message.check_apply_state() && Message.check_apply_repeat(json_message)) {
+        if (Message.check_apply_status() && Message.check_apply_repeat(json_message)) {
             console.log('不能重复报名。');
             return;
         }
-        if (Message.check_apply_state() && Message.is_message_apply(json_message)) {
+        if (Message.check_apply_status() && Message.is_message_apply(json_message)) {
             Message.add_apply(json_message);
             console.log('报名成功！');
             return;
-        }
+        }*/
         /*var process_message={
             '1':function(){},
             '2':function(){},
