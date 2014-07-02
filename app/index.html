@@ -15,13 +15,14 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
+
     <link rel="stylesheet" href="styles/main.css">
     <link href='styles/android.css' rel='stylesheet'media="screen">
     <link href='styles/bootstrap.css' rel='stylesheet'media="screen">
     <link href='styles/font-awesome.css'  rel='stylesheet'media="screen">
-    <link href='styles/bootstrap-responsive.css' rel='stylesheet'media="screen">
+    <!--<link href='styles/bootstrap-responsive.css' rel='stylesheet'media="screen">
     <link href='styles/bootstrapswitch.css' rel='stylesheet' media="screen">
-    <link href='styles/bootstrapswitch-custom.css'  rel='stylesheet' media="screen">
+    <link href='styles/bootstrapswitch-custom.css'  rel='stylesheet' media="screen">-->
     <!-- endbuild -->
   </head>
   <body ng-app="partyBidApp" >
@@ -61,19 +62,36 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/plugins/underscore.js"></script>
+        <script src="scripts/plugins/lib/cordova/cordova-2.1.0.js"></script>
+       <!-- <script src="cordova.js"></script>-->
+        <!--<script src="scripts/plugins/index.js"></script>-->
+        <!--<script type="text/javascript">
+        app.initialize();
+        </script>-->
+        <script src="scripts/plugins/lib/angular-mobile/mobile-nav.min.js"></script>
+        <script src="scripts/plugins/lib/zepto/zepto.js"></script>
+        <script src="scripts/plugins/lib/infrastructure/native.js"></script>
+        <script src="scripts/plugins/lib/jt-logic.js/conditions.js"></script>
+        <script src="scripts/plugins/lib/jt-logic.js/relations.js"></script>
+        <script src="scripts/plugins/lib/jt-logic.js/would.js"></script>
+        <script src="scripts/plugins/lib/jt-notify.js/notify.js"></script>
+        <script src="scripts/plugins/lib/jt/jt.js"></script>
+        <script src="scripts/plugins/lib/jt/JTObject.js"></script>
+        <script src="scripts/plugins/mobile.js"></script>
+        <script src="scripts/plugins/sms.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/CreateActivity.js"></script>
         <script src="scripts/controllers/ActivityList.js"></script>
         <script src="scripts/controllers/ApplyStart.js"></script>
         <script src="scripts/controllers/BidStart.js"></script>
-        <script src="scripts/controllers/BIdApply.js"></script>
-        <script src="scripts/plugins/sms.js"></script>
+        <script src="scripts/controllers/BidApply.js"></script>
         <script src="scripts/model/Activity.js"></script>
         <script src="scripts/model/Apply.js"></script>
         <script src="scripts/model/Bid.js"></script>
         <script src="scripts/model/Message.js"></script>
-        <script src="scripts/plugins/underscore.js"></script>
+
         <!--<script src="scripts/controllers/ActivityList.js"></script>-->
         <!-- endbuild -->
 </body>

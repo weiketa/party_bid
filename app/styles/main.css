@@ -78,12 +78,12 @@ body {
   }
 }
 .bidstart{
-    background:yellow;
+    background:yellow !important;
 }
 .applystart{
-    background:yellow;
+    background:yellow !important;
 }
 .biding{
-    background:yellow;
+    background:yellow !important;
 }
 

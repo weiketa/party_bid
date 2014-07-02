@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('partyBidApp')
-    .controller('CreateActivityCtrl',function ($scope) {
+    .controller('CreateActivityCtrl',function ($scope,$location) {
         $scope.flag=Activity.check_exist_activity_list();
 
         $scope.add=function() {
@@ -9,7 +9,7 @@ angular.module('partyBidApp')
             $scope.repeat=activity.check_activity_repeat(Activity.get_activitise());
             activity.add_activity($scope.repeat);
             if(!$scope.repeat)
-            location.href='#/apply/'+$scope.input;
+                $location.path('apply/'+$scope.input);
         }
     });
 

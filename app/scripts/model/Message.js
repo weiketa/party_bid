@@ -47,24 +47,28 @@ Message.check_apply_detail_status=function(){
         return true;
     return false;
 }
-Message.check_bid_status=function(){
+/*Message.check_bid_status=function(){
     var activity_list=JSON.parse(localStorage.getItem('activitylist'));
     if(_.find(activity_list,function(activity){return activity.bidstatus=='bidstart'}))
         return true;
     return false;
-}
-Message.check_bid_detail_status=function(){
-    var bid_list=(JSON.parse(localStorage.getItem('activitylist'))).bidlist;
-    if(_.find(bid_list,function(bid){return _.last(bid.bidapplylist).length==0}))
+}*/
+/*Message.check_bid_detail_status=function(){
+    var activity_list=JSON.parse(localStorage.getItem('activitylist'));
+    //console.log(_.find(bid_list,function(bid){return _.last(bid.bidapplylist).length==0}));
+    if(_.find(activity_list,function(activity){return _.last(activity.bidapplylist).length==0}))
         return true;
     return false;
-}
+}*/
 Message.is_bid_or_apply=function(message){
     var message=Message.delete_space(message);
     if(message.search(/bm/i)==0)
         return 'apply_message';
     if(message.search(/jj/i)==0)
         return 'bid_message';
-    return 'wrong_message'
+    return 'wrong_message';
+}
+Message.get_phone=function(message){
+    return message.messages[0].phone;
 }
 

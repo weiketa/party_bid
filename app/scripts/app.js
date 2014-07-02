@@ -6,16 +6,17 @@ angular
         'ngResource',
         'ngSanitize',
         'ngRoute'
+
     ])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'views/htmls/create_activity.html',
-                controller: 'CreateActivityCtrl'
-            })
-            .when('/activitylist', {
                 templateUrl: 'views/htmls/activity_list.html',
                 controller: 'ActivityListCtrl'
+            })
+            .when('/activitycreate', {
+                templateUrl: 'views/htmls/create_activity.html',
+                controller: 'CreateActivityCtrl'
             })
             .when('/apply/:activity_name', {
                 templateUrl: 'views/htmls/activity_start.html',
@@ -33,8 +34,3 @@ angular
                 redirectTo: '/'
             });
     });
-$(document).ready(function (){
-    //前提假设
-    if(!localStorage.activitylist)
-        localStorage.activitylist=JSON.stringify([]);
-});
