@@ -60,7 +60,7 @@ Message.check_bid_detail_status=function(){
         return true;
     return false;
 }
-/*Message.check_bid_is_in_apply=function(message){
+Message.check_bid_is_in_apply=function(message){
     var activity_list=JSON.parse(localStorage.getItem('activitylist')),
         current_activity=JSON.parse(localStorage.getItem('current_activity')),
         bid_phone=message.messages[0].phone,
@@ -69,7 +69,7 @@ Message.check_bid_detail_status=function(){
         return true;
     return false;
 }
-Message.is_repeat_bid=function(message){
+/*Message.is_repeat_bid=function(message){
     var activity_list=JSON.parse(localStorage.getItem('activitylist')),
         current_activity=JSON.parse(localStorage.getItem('current_activity')),
         bid_phone=message.messages[0].phone,

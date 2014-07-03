@@ -48,11 +48,11 @@ var native_accessor = {
                     console.log('对不起，竞价已经结束。');
                     return;
                 }
-                /*if(!Message.check_bid_is_in_apply(json_message)){
+                if(!Message.check_bid_is_in_apply(json_message)){
                     console.log('对不起，您没有报名此活动。');
                     return;
                 }
-                if(Message.is_repeat_bid(json_message)){
+                /*if(Message.is_repeat_bid(json_message)){
                     console.log('您已成功出价，请勿重复出价。');
                     return;
                 }*/
