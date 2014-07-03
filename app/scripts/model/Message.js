@@ -47,16 +47,34 @@ Message.check_apply_detail_status=function(){
         return true;
     return false;
 }
-/*Message.check_bid_status=function(){
+Message.check_bid_status=function(){
     var activity_list=JSON.parse(localStorage.getItem('activitylist'));
     if(_.find(activity_list,function(activity){return activity.bidstatus=='bidstart'}))
         return true;
     return false;
-}*/
-/*Message.check_bid_detail_status=function(){
+}
+Message.check_bid_detail_status=function(){
     var activity_list=JSON.parse(localStorage.getItem('activitylist'));
-    //console.log(_.find(bid_list,function(bid){return _.last(bid.bidapplylist).length==0}));
-    if(_.find(activity_list,function(activity){return _.last(activity.bidapplylist).length==0}))
+    var current_activity=JSON.parse(localStorage.getItem('current_activity'));
+    if(_.findWhere(activity_list,{name:current_activity}).bidlist.length==0)
+        return true;
+    return false;
+}
+/*Message.check_bid_is_in_apply=function(message){
+    var activity_list=JSON.parse(localStorage.getItem('activitylist')),
+        current_activity=JSON.parse(localStorage.getItem('current_activity')),
+        bid_phone=message.messages[0].phone,
+        apply_list=_.findWhere(activity_list,{name:current_activity}).applylist;
+    if(_.find(apply_list,function(apply){return apply.phone==bid_phone}))
+        return true;
+    return false;
+}
+Message.is_repeat_bid=function(message){
+    var activity_list=JSON.parse(localStorage.getItem('activitylist')),
+        current_activity=JSON.parse(localStorage.getItem('current_activity')),
+        bid_phone=message.messages[0].phone,
+        bid_list=_.findWhere(activity_list,{name:current_activity}).bidlist;
+    if(_.find(bid_list,function(bid){return bid.phone==bid_phone}))
         return true;
     return false;
 }*/
@@ -71,4 +89,5 @@ Message.is_bid_or_apply=function(message){
 Message.get_phone=function(message){
     return message.messages[0].phone;
 }
+
 

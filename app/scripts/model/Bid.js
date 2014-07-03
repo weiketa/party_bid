@@ -54,3 +54,6 @@ Bid.save_bid_style=function(activity_name){
     lastbid.bidstyle='bided';
     localStorage.setItem('activitylist',JSON.stringify(activity_list));
 }
+Bid.save_current_activity=function(activity_name){
+    localStorage.setItem('current_activity',JSON.stringify(activity_name));
+}

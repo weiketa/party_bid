@@ -40,12 +40,24 @@ var native_accessor = {
                 }
             },
             bid_message: function () {
-                //native_accessor.send_sms(Message.get_phone(json_message),'竞价信息处理中...');
-                console.log('竞价信息处理中...');
-                /*if(!Message.check_bid_status()&&Message.check_bid_detail_status()){
+                if(!Message.check_bid_status()&&Message.check_bid_detail_status()){
                     console.log('竞价尚未开始，请稍候。');
                     return;
-            }*/
+            }
+               /* if(!Message.check_bid_status()&&!Message.check_bid_detail_status()){
+                    console.log('对不起，竞价已经结束。');
+                    return;
+                }
+                if(!Message.check_bid_is_in_apply(json_message)){
+                    console.log('对不起，您没有报名此活动。');
+                    return;
+                }
+                if(Message.is_repeat_bid(json_message)){
+                    console.log('您已成功出价，请勿重复出价。');
+                    return;
+                }*/
+
+                   // console.log('恭喜！您已成功出价。');
             },
             wrong_message: function () {
                 //native_accessor.send_sms(Message.get_phone(json_message),'短信格式不对。');
