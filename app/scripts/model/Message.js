@@ -69,7 +69,7 @@ Message.check_bid_is_in_apply=function(message){
         return true;
     return false;
 }
-/*Message.is_repeat_bid=function(message){
+Message.is_repeat_bid=function(message){
     var activity_list=JSON.parse(localStorage.getItem('activitylist')),
         current_activity=JSON.parse(localStorage.getItem('current_activity')),
         bid_phone=message.messages[0].phone,
@@ -77,7 +77,7 @@ Message.check_bid_is_in_apply=function(message){
     if(_.find(bid_list,function(bid){return bid.phone==bid_phone}))
         return true;
     return false;
-}*/
+}
 Message.is_bid_or_apply=function(message){
     var message=Message.delete_space(message);
     if(message.search(/bm/i)==0)

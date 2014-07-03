@@ -52,10 +52,10 @@ var native_accessor = {
                     console.log('对不起，您没有报名此活动。');
                     return;
                 }
-                /*if(Message.is_repeat_bid(json_message)){
+                if(Message.is_repeat_bid(json_message)){
                     console.log('您已成功出价，请勿重复出价。');
                     return;
-                }*/
+                }
 
                    // console.log('恭喜！您已成功出价。');
             },
