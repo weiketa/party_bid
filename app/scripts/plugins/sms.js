@@ -44,11 +44,11 @@ var native_accessor = {
                     console.log('竞价尚未开始，请稍候。');
                     return;
             }
-               /* if(!Message.check_bid_status()&&!Message.check_bid_detail_status()){
+                if(!Message.check_bid_status()&&!Message.check_bid_detail_status()){
                     console.log('对不起，竞价已经结束。');
                     return;
                 }
-                if(!Message.check_bid_is_in_apply(json_message)){
+                /*if(!Message.check_bid_is_in_apply(json_message)){
                     console.log('对不起，您没有报名此活动。');
                     return;
                 }
