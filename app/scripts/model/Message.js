@@ -78,6 +78,15 @@ Message.is_repeat_bid=function(message){
         return true;
     return false;
 }
+Message.save_bid_message=function(message){
+    var activity_list=JSON.parse(localStorage.getItem('activitylist')),
+        current_activity=JSON.parse(localStorage.getItem('current_activity')),
+        bid_price=Message.delete_space(message).substr(2).trim(),
+        bid_phone=message.messages[0].phone,
+        bid_list=_.findWhere(activity_list,{name:current_activity}).bidlist;
+        _.last(bid_list).bidapplylist.push({id:_.last(bid_list).bidapplylist.length+1,price:bid_price,phone:bid_phone});
+        localStorage.setItem('activitylist',JSON.stringify(activity_list));
+}
 Message.is_bid_or_apply=function(message){
     var message=Message.delete_space(message);
     if(message.search(/bm/i)==0)

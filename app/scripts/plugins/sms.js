@@ -56,8 +56,8 @@ var native_accessor = {
                     console.log('您已成功出价，请勿重复出价。');
                     return;
                 }
-
-                   // console.log('恭喜！您已成功出价。');
+                  Message.save_bid_message(json_message);
+                  console.log('恭喜！您已成功出价。');
             },
             wrong_message: function () {
                 //native_accessor.send_sms(Message.get_phone(json_message),'短信格式不对。');
