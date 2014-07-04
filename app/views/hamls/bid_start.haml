@@ -7,7 +7,7 @@
 #wrapper.wrapper.scrollable
   %ul.list-style-2
     %li(ng-repeat="bid in bids" class="{{bid.bidstyle}}" )
-      %a(href="#/bidapply/{{activity_name}}" )
+      %a(href="#/bidapply/{{bid.bidname}}" )
         %h3
           {{bid.bidname}}
 %footer

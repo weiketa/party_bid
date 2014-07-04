@@ -26,7 +26,7 @@ angular
                 templateUrl: 'views/htmls/bid_start.html',
                 controller: 'BidStartCtrl'
             })
-            .when('/bidapply/:activity_name', {
+            .when('/bidapply/:bid_name', {
                 templateUrl: 'views/htmls/bid_apply.html',
                 controller: 'BidApplyCtrl'
             })

@@ -1,12 +1,12 @@
 %header
-  竞价报名
+  竞价报名({{bids.length}}人)
   .header-left
     %a.btn-style.btn-4(href="#/bidlist/{{activity_name}}") 返回
   .header-right
     %button.btn.btn-style.btn-4(ng-click="bid_end()" ng-disabled="flag") 结束
 #wrapper.wrapper.scrollable
   %ul.list-style-2
-    %li(ng-repeat="apply in applies")
+    %li(ng-repeat="bid in bids")
       %a(href="" )
         %h3
-          {{apply.applyname}} {{apply.phone}}
+          {{bid.id}}.{{bid.price}}{{bid.phone}}
