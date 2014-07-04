@@ -38,9 +38,16 @@ Message.add_apply=function(message){
         var apply_model={'applyname':apply_name,'phone':apply_phone};
         _.findWhere(activity_list,{applystatus:'applystart'}).applylist.push(apply_model);
         localStorage.setItem('activitylist',JSON.stringify(activity_list));
-        location.reload();
+        Message.refresh_apply_list();
 }
 
+Message.refresh_apply_list=function(){
+    var apply_list=document.getElementById('applylist');
+    var apply_list_scope=angular.element(apply_list).scope();
+    apply_list_scope.$apply(function(){
+        apply_list_scope.applies=Apply.get_apply_list(apply_list_scope.activity_name);
+    });
+}
 Message.check_apply_detail_status=function(){
     var activity_list=JSON.parse(localStorage.getItem('activitylist'));
     if(_.find(activity_list,function(activity){return activity.applylist.length==0}))

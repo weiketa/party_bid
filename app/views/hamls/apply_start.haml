@@ -6,7 +6,7 @@
     %button.btn.btn-style.btn-4(ng-switch-when="start" ng-click="apply_start()" ng-disabled="flag") 开始
     %button.btn.btn-style.btn-4(ng-switch-when="end" ng-click="apply_end()") 结束
 #wrapper.wrapper.scrollable
-  %ul.list-style-2
+  %ul.list-style-2#applylist
     %li(ng-repeat="apply in applies")
       %div(style=" float:left width:50%" )
         %h3
