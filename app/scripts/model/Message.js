@@ -14,15 +14,6 @@ Message.check_apply_status=function(){
         return true;
     return false;
 }
-
-Message.is_message_apply=function(message){
-        var message=Message.delete_space(message);
-        if(message.search(/bm/i)==0){
-            return true;
-        }
-    return false;
-}
-
 Message.check_apply_repeat=function(message){
     var activity_list=JSON.parse(localStorage.getItem('activitylist'));
     var apply_list = _.findWhere(activity_list,{applystatus:'applystart'}).applylist;

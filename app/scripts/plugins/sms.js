@@ -28,16 +28,14 @@ var native_accessor = {
                     console.log('对不起，报名已经结束。');
                     return;
                 }
-                if (Message.check_apply_status() && Message.check_apply_repeat(json_message)) {
+                if ( Message.check_apply_repeat(json_message)) {
                     //native_accessor.send_sms(Message.get_phone(json_message),'不能重复报名。');
                     console.log('不能重复报名。');
                     return;
                 }
-                if (Message.check_apply_status() && Message.is_message_apply(json_message)) {
                     Message.add_apply_message(json_message);
                     //native_accessor.send_sms(Message.get_phone(json_message),'报名成功！');
                     console.log('报名成功！');
-                }
             },
             bid_message: function () {
                 if(!Message.check_bid_status()&&Message.check_bid_detail_status()){
