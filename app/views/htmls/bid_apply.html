@@ -10,11 +10,14 @@
 <div class='wrapper scrollable' id='wrapper'>
   <ul class='list-style-2' id='bidlist'>
     <li ng-repeat='bid in bids'>
-      <a href=''>
+      <div style=' float:left width:50%'>
         <h3>
-          {{bid.id}}.{{bid.price}}{{bid.phone}}
+          {{bid.id}}.{{bid.price}}
+          <div style='float:right'>
+            {{bid.phone}}
+          </div>
         </h3>
-      </a>
+      </div>
     </li>
   </ul>
 </div>

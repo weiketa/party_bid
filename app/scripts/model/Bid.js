@@ -75,3 +75,12 @@ Bid.add_apply_name_into_bid_message=function(activity_list,bid_messages,activity
     })});
     return bid_messages;
 }
+Bid.is_bided=function(bid_name){
+    var activity_list=JSON.parse(localStorage.getItem('activitylist')),
+        current_activity=Bid.get_current_activity(),
+        bid_list=_.findWhere(activity_list,{name:current_activity}).bidlist,
+        bid_info= _.findWhere(bid_list,{bidname:bid_name});
+    if(bid_info.bidstyle=='bided')
+        return true;
+    return false;
+}

@@ -60,7 +60,6 @@ Message.check_bid_detail_status=function(){
     return false;
 }
 Message.check_bid_is_in_apply=function(message){
-    //console.log('m');
     var activity_list=JSON.parse(localStorage.getItem('activitylist')),
         current_activity=localStorage.getItem('current_activity'),
         bid_phone=message.messages[0].phone,
