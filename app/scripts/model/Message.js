@@ -63,7 +63,7 @@ Message.check_bid_status=function(){
 }
 Message.check_bid_detail_status=function(){
     var activity_list=JSON.parse(localStorage.getItem('activitylist'));
-    var current_activity=JSON.parse(localStorage.getItem('current_activity'));
+    var current_activity=localStorage.getItem('current_activity');
     if(_.findWhere(activity_list,{name:current_activity}).bidlist.length==0)
         return true;
     return false;
@@ -82,8 +82,9 @@ Message.is_repeat_bid=function(message){
     var activity_list=JSON.parse(localStorage.getItem('activitylist')),
         current_activity=localStorage.getItem('current_activity'),
         bid_phone=message.messages[0].phone,
-        bid_list=_.findWhere(activity_list,{name:current_activity}).bidlist;
-    if(_.find(bid_list,function(bid){return bid.phone==bid_phone}))
+        bid_list=_.findWhere(activity_list,{name:current_activity}).bidlist,
+        bid_messages= _.findWhere(bid_list,{bidstyle:'biding'}).bidapplylist;
+    if(_.find(bid_messages,function(bid_message){return bid_message.phone==bid_phone}))
         return true;
     return false;
 }
