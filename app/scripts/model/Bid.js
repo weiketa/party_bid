@@ -84,3 +84,9 @@ Bid.is_bided=function(bid_name){
         return true;
     return false;
 }
+Bid.is_biding=function(){
+    var activity_list=JSON.parse(localStorage.getItem('activitylist'));
+    if(_.findWhere(activity_list,{bidstatus:'bidstart'}))
+        return true;
+    return false;
+}
