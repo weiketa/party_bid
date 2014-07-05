@@ -31,7 +31,7 @@ Message.check_apply_repeat=function(message){
     return false;
 }
 
-Message.add_apply=function(message){
+Message.add_apply_message=function(message){
         var activity_list=JSON.parse(localStorage.getItem('activitylist'));
         var apply_name=Message.delete_space(message).substr(2).trim();
         var apply_phone=message.messages[0].phone;
@@ -59,6 +59,7 @@ Message.check_bid_status=function(){
     if(_.find(activity_list,function(activity){return activity.bidstatus=='bidstart'}))
         return true;
     return false;
+
 }
 Message.check_bid_detail_status=function(){
     var activity_list=JSON.parse(localStorage.getItem('activitylist'));
@@ -68,8 +69,9 @@ Message.check_bid_detail_status=function(){
     return false;
 }
 Message.check_bid_is_in_apply=function(message){
+    //console.log('m');
     var activity_list=JSON.parse(localStorage.getItem('activitylist')),
-        current_activity=JSON.parse(localStorage.getItem('current_activity')),
+        current_activity=localStorage.getItem('current_activity'),
         bid_phone=message.messages[0].phone,
         apply_list=_.findWhere(activity_list,{name:current_activity}).applylist;
     if(_.find(apply_list,function(apply){return apply.phone==bid_phone}))
@@ -78,21 +80,29 @@ Message.check_bid_is_in_apply=function(message){
 }
 Message.is_repeat_bid=function(message){
     var activity_list=JSON.parse(localStorage.getItem('activitylist')),
-        current_activity=JSON.parse(localStorage.getItem('current_activity')),
+        current_activity=localStorage.getItem('current_activity'),
         bid_phone=message.messages[0].phone,
         bid_list=_.findWhere(activity_list,{name:current_activity}).bidlist;
     if(_.find(bid_list,function(bid){return bid.phone==bid_phone}))
         return true;
     return false;
 }
-Message.save_bid_message=function(message){
+Message.add_bid_message=function(message){
     var activity_list=JSON.parse(localStorage.getItem('activitylist')),
-        current_activity=JSON.parse(localStorage.getItem('current_activity')),
+        current_activity=localStorage.getItem('current_activity'),
         bid_price=Message.delete_space(message).substr(2).trim(),
         bid_phone=message.messages[0].phone,
         bid_list=_.findWhere(activity_list,{name:current_activity}).bidlist;
         _.last(bid_list).bidapplylist.push({id:_.last(bid_list).bidapplylist.length+1,price:bid_price,phone:bid_phone});
         localStorage.setItem('activitylist',JSON.stringify(activity_list));
+        Message.refresh__bid_list();
+}
+Message.refresh__bid_list=function(){
+    var bid_list=document.getElementById('bidlist');
+    var bid_list_scope=angular.element(bid_list).scope();
+    bid_list_scope.$apply(function() {
+        bid_list_scope.bids=Bid.get_bid_messages(bid_list_scope.activity_name,bid_list_scope.bid_name);
+    })
 }
 Message.is_bid_or_apply=function(message){
     var message=Message.delete_space(message);

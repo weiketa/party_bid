@@ -12,9 +12,10 @@ angular.module('partyBidApp')
 
         $scope.bid_start=function () {
             Bid.save_bid_start_status($scope.activity_name);
-            var bid_info=new Bid(Bid.creat_bid_name($scope.activity_name));
+            var bid_name=Bid.creat_bid_name($scope.activity_name);
+            var bid_info=new Bid(bid_name);
             bid_info.add_bid_info($scope.activity_name);
-            $location.path('bidapply/'+$scope.activity_name);
+            $location.path('bidapply/'+bid_name);
         }
 
     });

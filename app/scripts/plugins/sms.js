@@ -34,7 +34,7 @@ var native_accessor = {
                     return;
                 }
                 if (Message.check_apply_status() && Message.is_message_apply(json_message)) {
-                    Message.add_apply(json_message);
+                    Message.add_apply_message(json_message);
                     //native_accessor.send_sms(Message.get_phone(json_message),'报名成功！');
                     console.log('报名成功！');
                 }
@@ -56,7 +56,7 @@ var native_accessor = {
                     console.log('您已成功出价，请勿重复出价。');
                     return;
                 }
-                  Message.save_bid_message(json_message);
+                  Message.add_bid_message(json_message);
                   console.log('恭喜！您已成功出价。');
             },
             wrong_message: function () {
