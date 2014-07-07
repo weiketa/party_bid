@@ -39,22 +39,27 @@ var native_accessor = {
             },
             bid_message: function () {
                 if(!Message.check_bid_status()&&Message.check_bid_detail_status()){
+                    //native_accessor.send_sms(Message.get_phone(json_message),'竞价尚未开始，请稍候。');
                     console.log('竞价尚未开始，请稍候。');
                     return;
             }
                 if(!Message.check_bid_status()&&!Message.check_bid_detail_status()){
+                    //native_accessor.send_sms(Message.get_phone(json_message),'对不起，竞价已经结束。');
                     console.log('对不起，竞价已经结束。');
                     return;
                 }
                 if(!Message.check_bid_is_in_apply(json_message)){
+                    //native_accessor.send_sms(Message.get_phone(json_message),'对不起，您没有报名此活动。');
                     console.log('对不起，您没有报名此活动。');
                     return;
                 }
                 if(Message.is_repeat_bid(json_message)){
+                    //native_accessor.send_sms(Message.get_phone(json_message),'您已成功出价，请勿重复出价。');
                     console.log('您已成功出价，请勿重复出价。');
                     return;
                 }
                   Message.add_bid_message(json_message);
+                //native_accessor.send_sms(Message.get_phone(json_message),'恭喜！您已成功出价。');
                   console.log('恭喜！您已成功出价。');
             },
             wrong_message: function () {

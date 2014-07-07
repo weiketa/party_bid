@@ -4,7 +4,7 @@
 'use strict';
 
 angular.module('partyBidApp')
-    .controller('ActivityStartCtrl', function ($scope, $routeParams) {
+    .controller('ActivityStartCtrl', function ($scope, $routeParams,$location) {
         $scope.activity_name = $routeParams.activity_name;
         $scope.applies = Apply.get_apply_list($scope.activity_name);
         $scope.switch = Apply.check_apply_status($scope.activity_name);
@@ -19,6 +19,7 @@ angular.module('partyBidApp')
             if (window.confirm('确认要结束本次报名吗？')) {
                 Apply.save_apply_end_status($scope.activity_name);
                 $scope.switch = 'start';
+                $location.path('bidlist/'+$scope.activity_name);
             }
         }
     });

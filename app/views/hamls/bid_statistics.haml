@@ -1,9 +1,7 @@
 %header
-  {{bid_name}}({{bids.length}}人)
+  竞价({{bids.length}}人)
   .header-left
     %a.btn-style.btn-4(href="#/bidlist/{{activity_name}}") 返回
-  .header-right
-    %button.btn.btn-style.btn-4(ng-click="bid_end()" ng-disabled="flag") 结束
 #wrapper.wrapper.scrollable
   %ul.list-style-2#bidlist
     %li(ng-repeat="bid in bids")
@@ -12,4 +10,11 @@
           {{bid.id}}.{{bid.price}}
           %div(style="float:right" )
             {{bid.phone}}
-
+%footer
+  %ul.footer-nav.footer-nav-2tabs
+    %li
+      %a(href="#/bidresult" )
+        竞价结果
+    %li.active
+      %a(href="" )
+        价格统计

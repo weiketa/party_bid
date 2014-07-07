@@ -4,7 +4,7 @@
 'use strict';
 
 angular.module('partyBidApp')
-    .controller('BidApplyCtrl',function ($scope,$routeParams) {
+    .controller('BidApplyCtrl',function ($scope,$routeParams,$location) {
         $scope.bid_name=$routeParams.bid_name;
         $scope.flag=Bid.is_bided($scope.bid_name);
         $scope.activity_name=Bid.get_current_activity();
@@ -14,6 +14,7 @@ angular.module('partyBidApp')
                 Bid.save_bid_end_status($scope.activity_name);
                 Bid.save_bid_style($scope.activity_name);
                 $scope.flag=true;
+                $location.path('bidresult');
             }
 
         }

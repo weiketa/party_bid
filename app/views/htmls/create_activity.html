@@ -8,9 +8,9 @@
   <form class='wrapper-inner'>
     <fieldset class='form-wrapper'>
       <h5>活动名称</h5>
-      <input class='input-full' ng-disabled='is_input_able' ng-model='input'>
+      <input class='input-full' ng-model='input'>
       <p ng-show='repeat' style='color:red'>活动名称重复</p>
-      <button class='btn btn-2' ng-click='add()' ng-disabled="(input==null||input=='')">创建</button>
+      <button class='btn btn-2' ng-click='add()' ng-disabled="is_input_able||input==null||input==''">创建</button>
     </fieldset>
   </form>
 </div>

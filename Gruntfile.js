@@ -111,6 +111,14 @@ module.exports = function (grunt) {
             bid_apply: {
                 src: 'app/views/hamls/bid_apply.haml',
                 dest: 'app/views/htmls/bid_apply.html'
+            },
+            bid_result: {
+                src: 'app/views/hamls/bid_result.haml',
+                dest: 'app/views/htmls/bid_result.html'
+            },
+            bid_statistics: {
+                src: 'app/views/hamls/bid_statistics.haml',
+                dest: 'app/views/htmls/bid_statistics.html'
             }
         },
 
