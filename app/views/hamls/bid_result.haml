@@ -1,15 +1,9 @@
 %header
-  竞价({{bids.length}}人)
+  %span
   .header-left
-    %a.btn-style.btn-4(href="#/bidlist/{{activity_name}}") 返回
+    %a.btn-style.btn-4#goback(href="") 返回
 #wrapper.wrapper.scrollable
   %ul.list-style-2#bidlist
-    %li(ng-repeat="bid in bids")
-      %div(style=" float:left width:50%" )
-        %h3
-          {{bid.id}}.{{bid.price}}
-          %div(style="float:right" )
-            {{bid.phone}}
 %footer
   %ul.footer-nav.footer-nav-2tabs
     %li.active
@@ -18,3 +12,5 @@
     %li
       %a(href="#/bidstatistics" )
         价格统计
+%script
+  bid_result_data_binding();

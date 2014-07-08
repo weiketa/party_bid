@@ -71,7 +71,7 @@ Bid.add_apply_name_into_bid_message=function(activity_list,bid_messages,activity
     var apply_messages=_.findWhere(activity_list,{name:activity_name}).applylist;
     _.each(bid_messages,function(bid_element){_.each(apply_messages,function(apply_element){
         if(bid_element.phone==apply_element.phone)
-        bid_element.price=apply_element.applyname;
+        bid_element.applyname=apply_element.applyname;
     })});
     return bid_messages;
 }
@@ -89,4 +89,7 @@ Bid.is_biding=function(){
     if(_.findWhere(activity_list,{bidstatus:'bidstart'}))
         return true;
     return false;
+}
+Bid.save_current_bid=function(bid_name){
+    localStorage.setItem('current_bid',bid_name);
 }

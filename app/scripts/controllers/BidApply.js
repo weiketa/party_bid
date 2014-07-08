@@ -6,6 +6,7 @@
 angular.module('partyBidApp')
     .controller('BidApplyCtrl',function ($scope,$routeParams,$location) {
         $scope.bid_name=$routeParams.bid_name;
+        Bid.save_current_bid($scope.bid_name);
         $scope.flag=Bid.is_bided($scope.bid_name);
         $scope.activity_name=Bid.get_current_activity();
         $scope.bids=Bid.get_bid_messages($scope.activity_name,$scope.bid_name);
