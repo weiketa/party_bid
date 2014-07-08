@@ -2,6 +2,10 @@
  * Created by voctor on 14-7-7.
  */
     function bid_result_data_binding(){
+    if(get_bid_success_message()){
+        var bid_success_message=get_bid_success_message();
+        $('center').text(bid_success_message.applyname+'￥'+bid_success_message.price+'竞价成功!');
+    }
         $('#modalSuccess').modal('show');
         setTimeout(function () {
             $('#modalSuccess').modal('hide');
@@ -18,5 +22,9 @@
 
 }
 function get_bid_success_message(){
-
+    var bid_messages=Bid.get_bid_messages(localStorage.current_activity,localStorage.current_bid);
+    var sort_by_bid_messages=_.sortBy(bid_messages,function(bid_message){return Math.min(bid_message.price)});
+    if(sort_by_bid_messages.length==1)
+        return sort_by_bid_messages[0];
+    return _.find(sort_by_bid_messages,function(bid,index){return index!=sort_by_bid_messages.length-1&&bid.price!=sort_by_bid_messages[index+1].price})
 }
