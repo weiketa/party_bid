@@ -1,24 +1,17 @@
 <header>
-  竞价({{bids.length}}人)
-  <div class='header-left'>
-    <a class='btn-style btn-4' href='#/bidlist/{{activity_name}}'>返回</a>
-  </div>
+  <span>
+    <div class='header-left'>
+      <a class='btn-style btn-4' id='goback'>返回</a>
+    </div>
+  </span>
 </header>
 <div class='wrapper scrollable' id='wrapper'>
-  <ul class='list-style-2' id='bidlist'>
-    <li ng-repeat='bid in bids'>
-      <div style=' float:left width:50%'>
-        <h3>
-          {{bid.id}}.{{bid.price}}
-          <div style='float:right'>
-            {{bid.phone}}
-          </div>
-        </h3>
-      </div>
-    </li>
-  </ul>
+  <ul class='list-style-2' id='bidlist'></ul>
 </div>
 <footer>
+  <div>
+    <p align='center' id='success'></p>
+  </div>
   <ul class='footer-nav footer-nav-2tabs'>
     <li>
       <a href='#/bidresult'>
@@ -32,3 +25,6 @@
     </li>
   </ul>
 </footer>
+<script>
+  bid_statistics_data_binding();
+</script>

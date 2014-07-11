@@ -10,7 +10,6 @@ function bid_result_data_binding(){
         setTimeout(function () {
             $('#modalSuccess').modal('hide');
         }, 3000);
-
     $('#modalSuccess').on('hide.bs.modal',function(){
         $('#success').text('竞价结果：'+bid_success_message.applyname+'￥'+bid_success_message.price+'竞价成功!');
     });
