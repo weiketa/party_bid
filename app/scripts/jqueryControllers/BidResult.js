@@ -24,9 +24,6 @@ function bid_result_data_binding(){
 }
 
 function get_bid_success_message(){
-    var bid_messages=Bid.get_bid_messages(localStorage.current_activity,localStorage.current_bid);
-    var sort_by_bid_messages=_.sortBy(bid_messages,function(bid_message){return Math.min(bid_message.price)});
-    if(sort_by_bid_messages.length==1)
-        return sort_by_bid_messages[0];
-    return _.find(sort_by_bid_messages,function(bid,index){return index!=sort_by_bid_messages.length-1&&bid.price!=sort_by_bid_messages[index+1].price})
+    var bid_statistics_data=get_bid_statistics_data();
+    return _.find(bid_statistics_data,function(bid){return bid.times==1});
 }
