@@ -1,11 +1,25 @@
 <header>
-  <span></span>
+  <span id='title'></span>
   <div class='header-left'>
     <a class='btn-style btn-4' id='goback'>返回</a>
   </div>
 </header>
 <div class='wrapper scrollable' id='wrapper'>
-  <ul class='list-style-2' id='bidlist'></ul>
+  <ul class='list-style-2' id='bidlist'>
+    <template id='temp'>
+      <li>
+        <table>
+          <tr>
+            <td width='100%'></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td rowspan='2'></td>
+          </tr>
+        </table>
+      </li>
+    </template>
+  </ul>
 </div>
 <div class='modal fade' id='modalSuccess' style='display: inline-table'>
   <div class='modal-content'>
@@ -13,7 +27,7 @@
       <a class='close' data-dismiss='modal'>x</a>
     </div>
     <div class='modal-body'>
-      <center></center>
+      <p align='center' id='modalSuccessMessage'></p>
     </div>
   </div>
 </div>

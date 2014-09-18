@@ -1,15 +1,23 @@
 %header
-  %span
+  %span#title
   .header-left
     %a.btn-style.btn-4#goback 返回
 #wrapper.wrapper.scrollable
   %ul.list-style-2#bidlist
+    %template#temp
+      %li
+        %table
+          %tr
+            %td(width="100%")
+            %td
+          %tr
+            %td(rowspan="2")
 .modal.fade#modalSuccess(style="display: inline-table")
   .modal-content
     .modal-header
       %a.close(data-dismiss = "modal")x
     .modal-body
-      %center
+      %p#modalSuccessMessage(align="center")
 %footer
   %div
     %p#success(align="center" )
